@@ -1,0 +1,33 @@
+{% block header %}
+\documentclass[a4paper,10pt]{article}\setlength{\parindent}{0cm}
+{% endblock %}
+{% block packages %}
+\usepackage[utf8x]{inputenc}
+\usepackage{bookmark}
+\usepackage{framed}
+\usepackage{cancel}
+\usepackage[normalem]{ulem}
+\usepackage{color}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{linegoal}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{pbox}
+\usepackage{mdframed}
+\usepackage[T1,T2A]{fontenc}
+\usepackage{enumitem}
+\usepackage[english,russian]{babel}
+\usepackage{hyperref}
+\usepackage{tabu}
+\usepackage{longtable}
+\usepackage{makecell}
+{% endblock %}
+\setlistdepth{600}
+\hypersetup{colorlinks=true, urlcolor=blue}
+{{colors_defines|safe()}}
+\newmdenv[innertopmargin=0pt,skipbelow=5pt,skipabove=5pt,innerbottommargin=0pt,rightmargin=0pt,innerleftmargin=0pt,linewidth=0pt,innerrightmargin=0pt,leftmargin=0pt]{pmdframed}
+\newmdenv[innertopmargin=0pt,skipbelow=0pt,skipabove=0pt,innerbottommargin=0pt,rightmargin=0pt,innerleftmargin=0pt,linewidth=0pt,innerrightmargin=0pt,leftmargin=0pt]{divmdframed}
+{% block document %}
+\begin{document}
+    {{document|safe()}}
+\end{document}
+{% endblock %}
