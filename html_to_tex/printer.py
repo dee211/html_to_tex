@@ -6,13 +6,15 @@ from tempfile import mkstemp
 import re
 from constants import timeout_return_code
 from helpers import TemporaryDirectory
-from settings import HOME_DIR, PROJECT_ROOT
+# from settings import HOME_DIR, PROJECT_ROOT
+# from path import path
 
 
 def init_tex_environment():
-    if HOME_DIR:
-        os.putenv('HOME', HOME_DIR)
-    os.putenv("TEXINPUTS", ".:{}:".format(PROJECT_ROOT.dirname() / "etc/tex_styles/"))
+    pass
+    # if HOME_DIR:
+    #     os.putenv('HOME', HOME_DIR)
+    # os.putenv("TEXINPUTS", ".:{}:".format(path(PROJECT_ROOT).dirname() / "etc/tex_styles/"))
 
 
 def get_tex_error_message(error_message):

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from copy import copy
+import os
 from config import BaseConfig
 from tag_configs import TagConfig, AddStylesTagConfig, \
     FixedWrapperTagConfig
@@ -14,8 +15,9 @@ from tag_processors import ATagProcessor, BRTagProcessor, UlTagProcessor, \
     TBodyTagProcessor
 from value_updaters import UniterMerger, ReplacerMerger
 
+root_path = os.path.abspath(os.path.dirname(__file__))
 HOME_DIR = '~/'
-PROJECT_ROOT = '~/'
+PROJECT_ROOT = root_path
 
 
 class ConverterDefaultConfig(BaseConfig):

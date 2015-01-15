@@ -6,5 +6,5 @@ setup(
     version='1.0',
     packages=find_packages(),
     long_description=open(join(dirname(__file__), 'README.txt')).read(),
-    install_requires=['Jinja2==2.7.1', 'BeautifulSoup==3.2.1']
+    install_requires=['Jinja2==2.7.1', 'BeautifulSoup==3.2.1', 'path.py==7.0']
 )
