@@ -34,7 +34,7 @@ class HtmlToTex(object):
         self.configurations = configurations or default_configurations
 
     def get_tex_error(self, tex):
-        errors = TexPrinter(tex.encode('utf-8'), draft=True, time_limit=compilation_timelimit).do_operation()
+        errors = TexPrinter(tex.encode('utf-8'), draft=False, time_limit=compilation_timelimit).do_operation()
         if errors:
             return errors
 
@@ -64,6 +64,11 @@ class HtmlToTex(object):
             colors_defines=tree.globals.get_colors_defines()
         )
 
+
+def html_to_pdf(html=u''):
+    tex = HtmlToTex().convert(html)
+    pdf = TexPrinter(tex.encode('utf-8'), draft=True).do_operation()
+    return pdf
 
 # if __name__ == '__main__':
 #     from html_to_tex.utils import TemplateToTexConverter
