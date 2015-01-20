@@ -6,7 +6,7 @@ class BaseConfig(object):
     text_style_processors = dict()
     block_style_processors = dict()
     parameters_parsers = dict()
-    template_name = "tex_template/tex_document.tex"
+    template_name = "tex_document.tex"
     inherited_styles = {
         u"text-color",
         u'text-decoration',

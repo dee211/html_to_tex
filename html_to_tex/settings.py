@@ -18,6 +18,7 @@ from value_updaters import UniterMerger, ReplacerMerger
 root_path = os.path.abspath(os.path.dirname(__file__))
 HOME_DIR = '~/'
 PROJECT_ROOT = root_path
+TEMPLATE_DIR = os.path.abspath(__file__ + "/../tex_template")
 
 
 class ConverterDefaultConfig(BaseConfig):

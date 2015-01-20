@@ -5,11 +5,12 @@ from os import system
 from subprocess import CalledProcessError
 from BeautifulSoup import BeautifulSoup
 from jinja2 import Markup
+from os.path import join
 from constants import compilation_timelimit
 from globals import ConverterGlobals
 from jinja2_tools import env
 from printer import TexPrinter
-from settings import ConverterSafeConfig, ConverterDefaultConfig, ConverterSafestConfig
+from settings import ConverterSafeConfig, ConverterDefaultConfig, ConverterSafestConfig, TEMPLATE_DIR
 # from jinja2.views import JinjaTemplateView, render_to_string
 
 
@@ -56,7 +57,8 @@ class HtmlToTex(object):
 
     def tree_to_tex(self, tree, config):
         context = self.get_context_data(tree, config)
-        return Markup(env.get_template(config.template_name).render(context))
+        abs_template_path = join(TEMPLATE_DIR, config.template_name)
+        return Markup(env.get_template(abs_template_path).render(context))
 
     def get_context_data(self, tree, config, **kwargs):
         return dict(
