@@ -153,6 +153,13 @@ class ConverterDefaultConfig(BaseConfig):
                 u'italic': (ur"\textit{", u"}")
             }
         ),
+        'text-align': FixedWrapperStyleConfig(
+            rules={
+                u'center': (ur"\centering{", u"}"),
+                u'left': (ur"\raggedright{", u"}"),
+                u'right': (ur"\raggedleft{", u"}")
+            }
+        ),
         'font-weight': FixedWrapperStyleConfig(
             rules={
                 u'bold': (ur"\textbf{", u"}")
@@ -177,6 +184,7 @@ class ConverterDefaultConfig(BaseConfig):
         u'font-size': ReplacerMerger(),
         u'other': ReplacerMerger(),
         u'font-style': ReplacerMerger(),
+        u'text-align': ReplacerMerger(),
         u'font-weight': ReplacerMerger(),
         u'sub': ReplacerMerger(),
         u'sup': ReplacerMerger(),
