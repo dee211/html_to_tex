@@ -6,6 +6,7 @@ from style_storage import StyleStorage
 
 class StateStorage(object):
     parent_storage = None
+    style_replacer = dict(align='text-align')
 
     def __init__(self, tag, config, globals):
         self.tag = tag
@@ -20,7 +21,7 @@ class StateStorage(object):
             self.classes, self.style = ClassStorage(set(), config), StyleStorage(dict(), config)
 
     def parse_attrs(self, attrs):
-        return {param: u"{}px".format(value) if value.isdigit() else value for param, value in attrs}
+        return {self.style_replacer.get(param, param): u"{}px".format(value) if value.isdigit() else value for param, value in attrs}
 
     def classes_to_set(self, classes):
         return {single for single in classes.split() if single}
