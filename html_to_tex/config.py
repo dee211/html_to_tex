@@ -14,6 +14,7 @@ class BaseConfig(object):
         u'other',
         u'font-style',
         u'font-weight',
+        u'text-align',
         u'sub',
         u'sup',
         u'color',

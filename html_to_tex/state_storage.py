@@ -13,9 +13,14 @@ class StateStorage(object):
         self.config = config
         if self.tag.__class__.__name__ in (u"Tag", u'Document'):
             self.classes = ClassStorage(self.classes_to_set(tag.get(u'class', u'')), config)
-            self.style = StyleStorage(self.styles_to_dict(tag.get(u'style', u'')), config)
+            style_dict = self.styles_to_dict(tag.get(u'style', u''))
+            style_dict.update(self.parse_attrs(self.tag.attrs))
+            self.style = StyleStorage(style_dict, config)
         else:
             self.classes, self.style = ClassStorage(set(), config), StyleStorage(dict(), config)
+
+    def parse_attrs(self, attrs):
+        return {param: u"{}px".format(value) if value.isdigit() else value for param, value in attrs}
 
     def classes_to_set(self, classes):
         return {single for single in classes.split() if single}
